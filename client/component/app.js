@@ -10,7 +10,6 @@ export default class App extends React.Component{
             <div>
                 <div className="header">
                     <Header />
-                    <hr/>  
                 </div>
                 <Slideshow />
                 <h1>App Component</h1>
