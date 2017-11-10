@@ -4,7 +4,7 @@ import Header from './header';
 
 const Contact = () => {
     return(
-        <div>
+        <div className="main">
             <Header />
                 <h1>Contact..</h1>
         </div>
