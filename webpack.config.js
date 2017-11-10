@@ -16,7 +16,8 @@ module.exports = {
           presets: ['react', 'es2015', 'stage-0'],
           plugins: ['react-html-attrs', 'transform-decorators-legacy', 'transform-class-properties'],
         }
-      }
+      },{test: /\.(jpe?g|png|gif|svg)$/i, loaders:[ 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]'
+      ]}
     ]
   },
   output: {
