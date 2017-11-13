@@ -23,18 +23,9 @@ changeSlide= () => {
     
  render(){
         return(
-<<<<<<< HEAD
-                 <div>
+                 <div className="slideshow">
                  <center><img src={require('./slideImage/'+this.state.image.path+'.png')} width='100%'/></center>
-                 <button className="next navButton" onClick={this.changeSlide}>&#10095;</button>
-                 <button className="prev navButton" onClick={this.changeSlide}>&#10094;</button>
                  </div>
         );
-=======
-               <div className="main">
-                  <h1>Slideshow</h1> 
-               </div>
-        )
->>>>>>> 7bdbce3e9f269f64ddafb1cdce2a822f7c91701f
     }
 }

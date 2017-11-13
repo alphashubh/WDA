@@ -1,5 +1,9 @@
 * {box-sizing:border-box}
 
+.slideshow img{
+  margin-top:4.9%;
+  height:90%;
+}
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;

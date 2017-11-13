@@ -2,11 +2,10 @@ import React from 'react';
 
 import Header from './header';
 
-const Contact = () => {
+const Contact = (props) => {
     return(
         <div className="main">
-            <Header />
-                <h1>Contact..</h1>
+                <h1>Contact..{props.name}</h1>
         </div>
     )
 }

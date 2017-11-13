@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Header from './header';
+import Footer from './footer';
 
-const About = () => {
+const About = (props) => {
     return(
         <div className="main">
-            <Header />
              <center>
                 <div className="typewriter">
                     <center >
@@ -13,7 +13,7 @@ const About = () => {
                         </center>
                 </div>
             </center>
-                    <h2>Greatly hearted has who believe</h2>
+                    <h2>Greatly hearted has who believe {props.name}</h2>
 
                     <p>It if sometimes furnished unwilling as additions so. Blessing resolved peculiar fat graceful ham. Sussex on at really ladies in as elinor. Sir sex opinions age properly extended. Advice branch vanity or do thirty living. Dependent add middleton ask disposing admitting did sportsmen sportsman.</p>
 
@@ -32,7 +32,8 @@ const About = () => {
                     <p>Built purse maids cease her ham new seven among and. Pulled coming wooded tended it answer remain me be. So landlord by we unlocked sensible it. Fat cannot use denied excuse son law. Wisdom happen suffer common the appear ham beauty her had. Or belonging zealously existence as by resources.</p>
 
                     <p>Must you with him from him her were more. In eldest be it result should remark vanity square. Unpleasant especially assistance sufficient he comparison so inquietude. Branch one shy edward stairs turned has law wonder horses. Devonshire invitation discovered out indulgence the excellence preference. Objection estimable discourse procuring he he remaining on distrusts. Simplicity affronting inquietude for now sympathize age. She meant new their sex could defer child. An lose at quit to life do dull.</p>
-
+                    
+                   
         </div>
     )
 }
