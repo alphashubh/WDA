@@ -6,6 +6,7 @@ import Footer from './footer';
 import Slideshow from './slideshow';
 import About from './about';
 import Contact from './contact';
+import JsonList from './jsonList';
 
 export default class App extends React.Component {
 
@@ -41,7 +42,7 @@ export default class App extends React.Component {
     }
 
 
-
+ 
     render(props) {
         return (
             <div>
@@ -65,6 +66,7 @@ export default class App extends React.Component {
                             : null
                     }
                 </div>
+                <JsonList />
                 <Footer />
 
             </div>
