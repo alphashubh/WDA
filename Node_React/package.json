@@ -1,0 +1,21 @@
+{
+  "name": "node_react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shubham dwivedi",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "node-fetch": "^1.7.3",
+    "node-rest-client": "^3.1.0",
+    "qr-image": "^3.2.0",
+    "qrcode-npm": "0.0.3"
+  }
+}

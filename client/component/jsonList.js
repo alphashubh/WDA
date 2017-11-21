@@ -12,7 +12,7 @@ export default class JsonList extends React.Component {
   }
   componentDidMount() {
     
-  axios.get('http://www.json-generator.com/api/json/get/clvUnDHQEi?indent=2')
+  axios.get('http://www.json-generator.com/api/json/get/ceqpXZevEy?indent=2' )
   .then(list => {
     console.log(list);
     
@@ -31,9 +31,10 @@ export default class JsonList extends React.Component {
     return this.state.data.map((item) => {
       return(
         <tr>
-          <td>{item.id}</td>
+          <td>{item.age}</td>
+           <td>{item.eyeColor}</td>
            <td>{item.name}</td>
-           <td>{item.hobby}</td>
+           <td>{item.longitude}</td>
           </tr>
       )
            
@@ -45,7 +46,11 @@ export default class JsonList extends React.Component {
         
     return (
       <div>
-      <table>
+      <table className="table">
+          <th>AGE</th>
+          <th>EYE COLOR</th>
+          <th>NAME</th>
+          <th>LONGITUDE</th>
             {this.craeteList()}
         </table>
       </div>
