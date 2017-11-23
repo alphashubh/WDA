@@ -68,7 +68,7 @@ export default class App extends React.Component {
                 </div>
                 <JsonList />
                 <Footer />
-
+              
             </div>
         )
     }
