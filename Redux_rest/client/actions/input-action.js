@@ -1,7 +1,7 @@
-export const takingInput = (input) => {
+export const takingInput = (input,username) => {
     return{
         type: "TAKING_INPUT",
-        payload: input
+        payload: input,username
     }
 }
 

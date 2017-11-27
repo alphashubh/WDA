@@ -1,7 +1,7 @@
-export default function(state={name:""}, action){
+export default function(state={}, action){
     switch(action.type){
         case "TAKING_INPUT":
-            return state={...state,name:action.payload}
+            return state=Object.assign({},state,action.payload); 
             break;
         
     }

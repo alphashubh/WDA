@@ -7,17 +7,22 @@ import * as takingInput from '../actions/input-action';
 
 class Input extends React.Component{
  
-    handleSubmit(event){
+    updateState(event){
         event.preventDefault();
-   console.log(this.iname.value);
-   this.props.action.takingInput(this.iname.value);
+        
+   var input ={name: this.iname.value, username: this.username.value };
+   console.log(input);
+   this.props.action.takingInput(input);
     }
     
-    secondClick(event){
+    handleSubmit(event){
        event.preventDefault();
-   var element= this.props.name.name;
+   var element1= this.props.name.name;
+   var element2= this.props.name.username;
    axios.post("http://localhost:3000/user", {
-       inputName: element
+       inputName: element1,
+       userName:element2
+
    })
    .then((response) =>{
        console.log(response);
@@ -30,14 +35,19 @@ class Input extends React.Component{
     render(){
         return(
             <div>
-            <form onSubmit={this.secondClick.bind(this)}>
+            <form onSubmit={this.handleSubmit.bind(this)}>
                 <input type="text"
                 placeholder="Enter Input" ref={(iname)=> {this.iname=iname}}
-                onChange={this.handleSubmit.bind(this)}
+                onChange={this.updateState.bind(this)}
                 required 
                 />
-                
+                 <input type="text"
+                placeholder="Enter UserName" ref={(username)=> {this.username=username}}
+                onChange={this.updateState.bind(this)}
+                required 
+                />
                 <button className="btn btn-primary">Send Rest</button>
+    {this.props.name.name}{this.props.name.username}
             </form>
             </div>
             
