@@ -6,44 +6,27 @@ import {bindActionCreators} from 'redux';
 import * as takingInput from '../actions/input-action';
 
 class Input extends React.Component{
- 
+    constructor(){
+        super();
+    }
     updateState(event){
         event.preventDefault();
-        
    var input ={name: this.iname.value, username: this.username.value };
-   console.log(input);
    this.props.action.takingInput(input);
     }
     
-    handleSubmit(event){
-       event.preventDefault();
-   var element1= this.props.name.name;
-   var element2= this.props.name.username;
-   axios.post("http://localhost:3000/user", {
-       inputName: element1,
-       userName:element2
-
-   })
-   .then((response) =>{
-       console.log(response);
-   })
-   .catch((error) =>{
-       console.log("error", error);
-   })
-
-    }
     render(){
         return(
             <div>
-            <form onSubmit={this.handleSubmit.bind(this)}>
+            <form onSubmit={this.updateState.bind(this)}>
                 <input type="text"
                 placeholder="Enter Input" ref={(iname)=> {this.iname=iname}}
-                onChange={this.updateState.bind(this)}
+                
                 required 
                 />
                  <input type="text"
                 placeholder="Enter UserName" ref={(username)=> {this.username=username}}
-                onChange={this.updateState.bind(this)}
+               
                 required 
                 />
                 <button className="btn btn-primary">Send Rest</button>

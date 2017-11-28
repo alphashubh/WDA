@@ -22,7 +22,9 @@ res.send(input);
    
 });
 
-
+app.get('/user', function(req,res){
+    res.send(input);
+});
 
 
 app.listen(3000);  
