@@ -11,10 +11,10 @@ export const takingInput = (input) => {
             userName:input.username
         })
         .then((response) =>{
-            console.log(response.data);
+            //console.log(response.data);
         })
         .catch((error) =>{
-            console.log(error);
+        //    console.log(error);
             })
         
     }

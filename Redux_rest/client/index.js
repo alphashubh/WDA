@@ -16,8 +16,9 @@ const history = syncHistoryWithStore(browserHistory, store);
 render(<Provider store={store}>
          <Router history={history}>
             <Route path='/' component={App} />
-            <Route path='/timeline' component={Timeline}/>
-            <Route path='/details' component={PrinitingState}/>
+            <Route path='/index.html' component={App} />
+            <Route path='/timeline.html' component={Timeline}/>
+            <Route path='/details.html' component={PrinitingState}/>
         </Router>
         </Provider>
     , document.getElementById('root'));
