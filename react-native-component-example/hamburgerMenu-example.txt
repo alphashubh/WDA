@@ -1,0 +1,98 @@
+import React, { Component } from 'react';
+import { Text, View, StyleSheet, DrawerLayoutAndroid, Image, ScrollView, TouchableWithoutFeedback } from 'react-native';
+import { Constants } from 'expo';
+
+export default class App extends Component {
+  
+  openDrawer(){
+    this.drawer.openDrawer();
+  }
+  render() {
+    
+    var navigationView = (
+    <ScrollView style={{flex: 1, backgroundColor: '#fff', paddingTop: 0, elevation : 10, }}>
+      <Image
+      style={{width: 250, height: 180}}
+      resizeMode="stretch"
+      source= {{uri: "https://d3i6fh83elv35t.cloudfront.net/newshour/app/uploads/2016/05/729665main_A-BlackHoleArt-pia16695_full-1024x576.jpg"}}
+      />
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+    </ScrollView>
+  );
+    return (
+      <DrawerLayoutAndroid
+      drawerWidth={250}
+      drawerPosition={DrawerLayoutAndroid.positions.Left}
+      ref={(_drawer) => this.drawer = _drawer}
+      renderNavigationView={() => navigationView}>
+      <View style={styles.container}>
+      <View style={{flexDirection: "row", backgroundColor: "#172840", height: 50, alignItems:"center", }}>
+        <View style={{flex: 1, }} onPress={this.openDrawer.bind(this)}>
+           <TouchableWithoutFeedback  onPress={this.openDrawer.bind(this)}>
+           <View style={{width: 60, height: 50,  alignItems:"center", justifyContent: "center"} }>
+           <View style={{backgroundColor: "white", width: 30, height: 4, marginBottom: 5, borderRadius: 2.5}} ></View>
+            <View style={{backgroundColor: "white", width: 30, height: 4, marginBottom: 5,borderRadius: 2.5}} ></View>
+            <View style={{backgroundColor: "white", width: 30, height: 4, borderRadius: 2.5}} ></View>
+            </View>
+            </TouchableWithoutFeedback>
+        </View>
+        <View style={{flex: 2,alignItems:"center",}}>
+            <Text style={styles.headText}>Qr Code Generator</Text>
+        </View>
+        <View style={{flex: 1,alignItems:"center",}}>
+            
+        </View>
+      </View>
+        <Text style={styles.paragraph}>
+          Phone connected! Change this code in Replit, press run, and watch it change on your phone.
+        </Text>
+         
+      <View style={{flex: 1, alignItems: 'center'}}>
+        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>Hello</Text>
+        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>World!</Text>
+      </View>
+    
+      </View>
+      </DrawerLayoutAndroid>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#fff',
+  },
+  headText: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  paragraph: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#34495e',
+  },
+});
+    
