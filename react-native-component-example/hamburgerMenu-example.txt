@@ -10,35 +10,34 @@ export default class App extends Component {
   render() {
     
     var navigationView = (
-    <ScrollView style={{flex: 1, backgroundColor: '#fff', paddingTop: 0, elevation : 10, }}>
+    <ScrollView style={{ backgroundColor: '#fff', paddingTop: 0, elevation : 10, }}>
       <Image
-      style={{width: 250, height: 180}}
+      style={{width: 300, height: 180, flex: 1}}
       resizeMode="stretch"
       source= {{uri: "https://d3i6fh83elv35t.cloudfront.net/newshour/app/uploads/2016/05/729665main_A-BlackHoleArt-pia16695_full-1024x576.jpg"}}
       />
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+      <View style={{borderBottomWidth: 2,   borderColor: '#d6d7da'}}> 
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}} onPress={()=>{
+      alert("First Selection");
+        this.drawer.closeDrawer();
+      }
+      }>First Selection</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}} onPress={()=>{
+      alert("Second Selection")
+        this.drawer.closeDrawer();
+      }
+      }>Second Selection</Text>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}} onPress={()=>{
+      alert("Third Selection")
+        this.drawer.closeDrawer();
+      }
+      }>Third Selection</Text>
+      </View>
     </ScrollView>
   );
     return (
       <DrawerLayoutAndroid
-      drawerWidth={250}
+      drawerWidth={300}
       drawerPosition={DrawerLayoutAndroid.positions.Left}
       ref={(_drawer) => this.drawer = _drawer}
       renderNavigationView={() => navigationView}>
