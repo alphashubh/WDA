@@ -1,0 +1,107 @@
+import React, { Component } from 'react';
+import { Text, View, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { Constants } from 'expo';
+
+export default class App extends Component {
+  constructor(){
+    super();
+    this.state={
+      number: '',
+    }
+    this.showButton=this.showButton.bind(this);
+    console.log(this.state.number);
+  }
+  showButton(){
+    if(!this.state.number){
+         return(
+        <View style={styles.container}>
+       <TouchableOpacity style={styles.button}
+        onPress={()=> {
+        
+          this.setState({number: 1});
+        }}
+        >
+          <View>
+            <Text style={styles.text}>Next >> </Text>
+          </View>
+        </TouchableOpacity>
+        <Text >Gadgets</Text>
+        
+        <Image 
+        style={{width: 400, height: 400}}
+        source={{uri:"https://img.washingtonpost.com/blogs/the-switch/files/2017/12/fowler-smarthome.jpg"}}
+        resizeMode="contain"
+        />
+        </View>
+      )
+    }
+ 
+      else if(this.state.number===1){
+    return(
+      <View style={styles.container}>
+       <TouchableOpacity style={styles.button}
+        onPress={()=>{
+        this.setState({number: 2})
+        }
+        }
+        >
+          <View>
+            <Text style={styles.text}>Next >></Text>
+          </View>
+        </TouchableOpacity>
+         <Text >Cookies</Text>
+         
+         <Image 
+        style={{width: 400, height: 400}}
+        source={{uri:"https://www.rd.com/wp-content/uploads/2016/07/weird-kitchen-gadgets-ice-cream-sandwich.jpg"}}
+        resizeMode="contain"
+        />
+        </View>
+      )
+      }
+      else{
+        this.setState({number: ""});
+        
+      }
+  }
+  render() {
+    return (
+      
+      <ScrollView style={styles.container}>
+      {this.showButton()}
+      </ScrollView>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ecf0f1',
+  },
+  paragraph: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#34495e',
+  },
+  button: {
+    backgroundColor: "green",
+    width: 100,
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+    elevation: 3,
+    padding: 5,
+    margin: 5,
+  },
+  text: {
+    color: 'white',
+  },
+});
+    

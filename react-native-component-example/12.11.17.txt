@@ -1,0 +1,59 @@
+import React, { Component } from 'react';
+import {AppRegistry, Text, View, StyleSheet, TextInput, Button } from 'react-native';
+
+export default class Touchables extends Component {
+ generateQr(){
+   alert("Qr generated");
+ }
+
+  render() {
+    return (
+      <View style={styles.container}>
+      <View style={styles.header}>
+      <Text style={styles.headerText}>Qr Code Generator</Text>
+      </View>
+       <View style={styles.body}>
+        
+        <TextInput style={styles.input}
+        placeholder="Enter Text To generate Qr"
+        underlineColorAndroid="transparent"
+        required
+        />
+        <Button 
+        onPress={this.generateQr.bind(this)}
+        title="Genrate Qr" 
+        />
+   </View>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 60
+  },
+  input:{
+    width: 300,
+    textAlign: 'center'
+  },
+  header:{
+   backgroundColor: 'black',
+    height: 50
+  },
+  headerText:{
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 30,
+    textStyle: 'bold',
+  },
+  body:{
+    alignItems:'center',
+    marginTop: 200,
+    height: 200,
+    
+  }
+})
+
+// skip this line if using Create React Native App
+AppRegistry.registerComponent('AwesomeProject', () => Touchables);

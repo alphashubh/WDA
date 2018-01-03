@@ -1,0 +1,127 @@
+import React, { Component } from 'react';
+import { Text, View, StyleSheet, TextInput, Button, KeyboardAvoidingView, TouchableOpacity,
+Keyboard,
+} from 'react-native';
+import { Constants } from 'expo';
+
+export default class App extends Component {
+  constructor(){
+    super();
+    this.state={
+      username: '',
+      password: '',
+    }
+  }
+  buttonPress(){
+    console.log("123", this.state.username);
+    alert("Welcome " +this.state.username);
+    fetch('http:10.224.213.130:3000/user', {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    name: this.state.username,
+  }),
+}).then((response) => {
+  console.log("Post Done");
+})
+.catch((error) => {
+  alert("Post data sending error");
+  console.log("Error In post calling", error);
+  console.log(ipconfig);
+});
+    Keyboard.dismiss();
+  }
+  render() {
+    return (
+      <KeyboardAvoidingView style={styles.maincontainer}>
+      <View style={styles.header}>
+      <Text style={{color:'white', fontWeight: 'bold', fontSize: 30}}>My App</Text>
+      </View>
+      <View style={styles.container}>
+        <Text style={styles.paragraph}>
+         User Login
+        </Text>
+        <TextInput style={styles.input}
+        placeholder="Enter Username" 
+        underlineColorAndroid='transparent'
+        //editable={false}
+        autoCapitalize="characters"
+        onChangeText={(username)=> this.setState({username}) }
+        />
+        <TextInput style={styles.input}
+        placeholder="Enter Password"
+        underlineColorAndroid='transparent'
+        //keyboardType="phone-pad"
+       secureTextEntry
+        onChangeText={(password)=> this.setState({password}) }
+        />
+        <TouchableOpacity onPress={this.buttonPress.bind(this)}>
+        <View  style={styles.button}>
+          <Text style={{color:'white', fontWeight: 'bold', fontSize: 20}}>Login</Text>
+        </View>
+        </TouchableOpacity> 
+        </View>
+       
+      </KeyboardAvoidingView>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  maincontainer: {
+    paddingTop: Constants.statusBarHeight,
+     backgroundColor: '#87cefa'
+  },
+  header: {
+    padding:  5,
+     alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#3b5998',
+     borderWidth: 1,
+     borderColor: 'white',
+  },
+  container: {
+    margin: 10,
+    marginTop: 80,
+    marginBottom: 300,
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#f9f9f9',
+    borderRadius: 10,
+  },
+  paragraph: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#34495e',
+  },
+  input: {
+  width: 300,
+  height: 50,
+  borderWidth: 1,
+  borderRadius: 5,
+  borderColor: 'grey',
+  paddingLeft: 10,
+  marginBottom: 20,
+    
+  },
+  button: {
+     elevation: 3,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 300,
+    height: 50,
+    backgroundColor: '#5cb85c',
+    borderRadius: 5,
+    margin      : 10,
+    padding     : 10,
+  },
+  
+});
+    
