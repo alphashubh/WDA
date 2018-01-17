@@ -1,0 +1,81 @@
+import React, { Component } from 'react';
+import { Text, View, StyleSheet, TextInput, TouchableOpacity, Alert, Image } from 'react-native';
+import { Constants } from 'expo';
+
+export default class App extends Component {
+  render() { 
+    return (
+      <Image
+      source={{uri: 'https://images.pexels.com/photos/424154/pexels-photo-424154.jpeg?w=940&h=650&auto=compress&cs=tinysrgb'}}
+      style={styles.container}>
+        <TextInput 
+        placeholder="Email"
+     // placeholderTextColor="white"
+       underlineColorAndroid="transparent"
+        style={styles.input}
+        //spellCheck={false}
+        autoCorrect={false}
+        />
+        <TextInput 
+        placeholder="Password"
+       // placeholderTextColor="white"
+       underlineColorAndroid="transparent"
+        style={styles.input}
+        secureTextEntry
+        />
+        <Text style={{color: '#0063cb', textDecorationLine: "underline" }}>Forgot Password?</Text>
+        <TouchableOpacity 
+        onPress={()=> {Alert.alert("Login Successfull")}}
+        >
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>Login</Text>
+          </View>
+        </TouchableOpacity>
+        
+        
+          <Text style={{color: 'white'}}>New User? <Text style={{ textDecorationLine: "underline", color: '#0063cb'}}>Sign Up</Text> </Text>
+      
+      </Image>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    resizeMode: 'stretch',
+  },
+  input: {
+    width: 300,
+    height: 50,
+    borderWidth: 1,
+    marginBottom: 20,
+    borderColor: '#558b2f',
+    backgroundColor: 'white',
+    color: 'black',
+    placeholderColor: 'black',
+    borderRadius: 50,
+    padding: 10,
+    textAlign: 'center',
+    justifyContent: 'center',
+    opacity: 0.90,
+    fontSize: 15
+  },
+  button: {
+    width: 300,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#558b2f',
+    elevation: 5,
+    margin: 10,
+    borderRadius: 50
+  },
+  buttonText: {
+    fontSize: 20,
+    color: 'white'
+  },
+});
+    
