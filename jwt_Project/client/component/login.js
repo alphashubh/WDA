@@ -22,6 +22,10 @@ export default class Login extends React.Component{
                console.log(error);
         })
     }
+    clicklogout(){
+       cookie.remove('token', { path: '/' })
+        this.setState({error: "Logout Successfull"});
+    }
 
     componentDidMount(){ 
         this.verifyToken();
@@ -74,6 +78,10 @@ export default class Login extends React.Component{
                 className="btn-primary col-md-3" 
                 >Login</button>
                 </form>
+                <button 
+                className="btn-primary col-md-3" 
+                onClick={this.clicklogout.bind(this)}
+                >Logout</button><br/>
                 {this.state.userName}
                 {this.state.password}
                 </center>
