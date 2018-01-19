@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import cookie from 'react-cookies';
 
 export default class Login extends React.Component{
     constructor(){
@@ -13,15 +14,16 @@ export default class Login extends React.Component{
     }
     verifyToken(){
         axios.post("http://10.224.213.130:3000/verifytoken",{
-            token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXRhaWxzIjp7InVzZXJuYW1lIjoidXNlciIsInVzZXJfaWQiOiIxMjMifSwiaWF0IjoxNTE2Mjc3MDUyLCJleHAiOjE1MTYyNzcxMTJ9.SqIHQHZTQ2hH45ENFHcVkd5GhAFZtP3TTuTs8OPXsNo"
+            token: cookie.load('token')
         }).then((response)=>{
             console.log(response);
+             this.setState({error: response.data.msg});
         }).catch((error)=>{
                console.log(error);
         })
     }
 
-    componentDidMount(){
+    componentDidMount(){ 
         this.verifyToken();
     }
     authenticateUser(event){
@@ -32,8 +34,17 @@ export default class Login extends React.Component{
             password: this.state.password
         }).then((response)=>{
             //alert(response.data.msg);
+            if(response.data.access_token){
+                this.setState({error: response.data.msg});
+            console.log(response.data.access_token); cookie.save
+                cookie.save('token', response.data.access_token, { path: '/' });
+                console.log("Saved cookie: "+ cookie.load('token'));
+            }
+            else{
             this.setState({error: response.data.msg});
             console.log(response.data.access_token);
+            }
+           
         }).catch((error)=>{
             console.log("error in Post"+error);
         })

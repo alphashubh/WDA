@@ -39,6 +39,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-addons-test-utils": "^0.14.7",
+    "react-cookies": "^0.1.0",
     "react-dom": "^16.2.0",
     "react-http-request": "^1.0.3",
     "react-redux": "^4.4.5",
