@@ -5,15 +5,25 @@ import cookie from 'react-cookies';
 export default class Login extends React.Component{
     constructor(){
         super();
+
+         var instance = axios.create({
+        baseURL: 'http://10.224.213.130:3000',
+         headers: {'token': cookie.load('token')}
+    });
         this.state={
             userName: "",
             password: "",
             error: "",
         }
-    
+      
     }
+    
+  
+    
     verifyToken(){
-        axios.post("http://10.224.213.130:3000/verifytoken",{
+       
+   // axios.defaults.headers.common['Authorization'] = cookie.load('token');
+    this.instance.post("/verifytoken",{
             token: cookie.load('token')
         }).then((response)=>{
             console.log(response);
@@ -29,6 +39,7 @@ export default class Login extends React.Component{
 
     componentDidMount(){ 
         this.verifyToken();
+        
     }
     authenticateUser(event){
         event.preventDefault();
@@ -40,8 +51,9 @@ export default class Login extends React.Component{
             //alert(response.data.msg);
             if(response.data.access_token){
                 this.setState({error: response.data.msg});
-            console.log(response.data.access_token); cookie.save
-                cookie.save('token', response.data.access_token, { path: '/' });
+            console.log(response.data.access_token);
+                cookie.save('token', response.data.access_token, { path: '/'});
+                cookie.save('user_id', 12345, {path: '/'});
                 console.log("Saved cookie: "+ cookie.load('token'));
             }
             else{

@@ -36,10 +36,14 @@ var token=req.body.token;
     try {
      var decoded = jwt.verify(token, config.secret);
      console.log("Token verified succesfully");
+     var head=req.headers.toString();
+      
+      console.log("request header ", req.headers.token);
       res.json({'msg': "Token Verified Successfully", access_token: token});
+      
     } catch(err) {
   // err
-   console.log("wrong Token");
+   console.log("wrong Token", err);
    res.json({'msg': "Token is wrong or expired", access_token: token});
     }
     }
