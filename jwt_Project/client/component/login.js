@@ -6,10 +6,7 @@ export default class Login extends React.Component{
     constructor(){
         super();
 
-         var instance = axios.create({
-        baseURL: 'http://10.224.213.130:3000',
-         headers: {'token': cookie.load('token')}
-    });
+       
         this.state={
             userName: "",
             password: "",
@@ -21,9 +18,12 @@ export default class Login extends React.Component{
   
     
     verifyToken(){
-       
+         var instance = axios.create({
+        baseURL: 'http://10.224.238.153:3000',
+         headers: {'token': cookie.load('token')}
+    });
    // axios.defaults.headers.common['Authorization'] = cookie.load('token');
-    this.instance.post("/verifytoken",{
+    instance.post("/verifytoken",{
             token: cookie.load('token')
         }).then((response)=>{
             console.log(response);
@@ -44,7 +44,7 @@ export default class Login extends React.Component{
     authenticateUser(event){
         event.preventDefault();
         //alert("Requesting User Authentication......")
-        axios.post("http://10.224.213.130:3000/user",{
+        axios.post("http://10.224.238.153:3000/user",{
             user_name: this.state.userName,
             password: this.state.password
         }).then((response)=>{
