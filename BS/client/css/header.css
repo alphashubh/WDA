@@ -1,0 +1,40 @@
+
+.box{
+         
+    background-color: white;
+      box-shadow: 0px 10px 5px 	#999999;
+      position: fixed;
+      width: 100%;
+       overflow: hidden;
+       top: 0;
+}
+
+@media (max-width: 500px) { 
+    .box {
+        box-shadow: none;
+    }
+    }
+.hamburger {
+    float:left;
+    padding: 0 0 0 2%; 
+}
+
+.menu_span {
+    clear: both;
+    padding: 0 0 0 0;
+}
+.menu_span div {
+    height: 2%;
+    text-align: left;
+    margin: 2%;
+}
+
+.menu_span div span {
+     font-size: 120%;
+}
+.nav{
+    cursor: pointer;
+        position: relative;
+      margin: 2% 0 1% 70%;  
+      font-size: 125%;  
+} 
